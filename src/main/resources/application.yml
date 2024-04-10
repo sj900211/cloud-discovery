@@ -1,0 +1,27 @@
+freshr:
+  service:
+    name: cloud-discovery
+    serial: 102
+
+server:
+  port: 50${freshr.service.serial}
+
+spring:
+  application:
+    name: ${freshr.service.name}
+
+  profiles:
+    active: test
+
+  cloud:
+    config:
+      enabled: false
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+logging:
+  level:
+    root: error
